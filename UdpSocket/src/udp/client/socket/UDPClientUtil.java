@@ -7,7 +7,7 @@ import java.net.SocketException;
 
 public class UDPClientUtil {
 	
-	private static String ip = "43.224.208.194";
+	private static String ip = "IPµØÖ·";
 	
 	private static int port =9999;
 	
@@ -43,8 +43,6 @@ public class UDPClientUtil {
         		+ "from=\"jstj001@coship-mes.com/ANDROID\" to=\"8120010155900365@coship-mes.com/ANDROID\" type=\"control\">"
         		+ "<body>{\"Param\":\"{\\\"KeyCode\\\":4}\",\"Cmd\":105,\"Timestamp\":1445248578646,\"Type\":0}</body></msg>";
         
-
-        		
 		sendPacket(returncode);
 	}
 }
