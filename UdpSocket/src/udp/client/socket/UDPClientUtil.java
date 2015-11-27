@@ -7,7 +7,7 @@ import java.net.SocketException;
 
 public class UDPClientUtil {
 	
-	private static String ip = IP地址;  //注意 ip地址不要上传git IP地址 
+	private static String ip = IP地址;  //注意 ip地址不要上传git IP地址 "43.224.208.194"
 	
 	private static int port = 端口;//端口 9999
 	
