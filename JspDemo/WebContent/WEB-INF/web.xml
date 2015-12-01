@@ -25,8 +25,11 @@
     <filter>
     	<filter-name>sessionfilter</filter-name>
     	<filter-class>my.ly.release.filters.SessionFilter</filter-class>
+    	<init-param>    
+			<param-name>excludedPages</param-name>    
+			<param-value>/login.jsp,/LoginCheck</param-value>    
+		</init-param>
     </filter>
-
     <filter-mapping>
     	<filter-name>sessionfilter</filter-name>
     	<url-pattern>/*</url-pattern>
@@ -58,203 +61,22 @@
      
      
 
-
-    
-    
-    
-    
-    
-    
-    
-	
 	<!-- display tag  -->
 	<filter> 
 		<filter-name>exportFilter</filter-name> 
 		<filter-class>org.displaytag.filter.ResponseOverrideFilter</filter-class> 
-	</filter>  
+	</filter> 
+    
 	
 	
-  <servlet>
-    <servlet-name>LoginCheck</servlet-name>
-    <servlet-class>servlet.LoginCheck</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>SeachCheck</servlet-name>
-    <servlet-class>servlet.SeachCheck</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>ListUser</servlet-name>
-    <servlet-class>servlet.ListUser</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>Update</servlet-name>
-    <servlet-class>servlet.Update</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>DelUser</servlet-name>
-    <servlet-class>servlet.DelUser</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>UpdateCheck</servlet-name>
-    <servlet-class>servlet.UpdateCheck</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>InsertCheck</servlet-name>
-    <servlet-class>servlet.InsertCheck</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>Upload</servlet-name>
-    <servlet-class>servlet.Upload</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>DelEnterprise</servlet-name>
-    <servlet-class>servlet.Enterprise.DelEnterprise</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>AddEnterprise</servlet-name>
-    <servlet-class>servlet.Enterprise.InsertCheck</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>listEnterprise</servlet-name>
-    <servlet-class>servlet.Enterprise.listEnterprise</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>ShowEnDetail</servlet-name>
-    <servlet-class>servlet.Enterprise.ShowEnDetail</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>ChangeEnterprise</servlet-name>
-    <servlet-class>servlet.Enterprise.ChangeEnterprise</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>UpdateEnDetail</servlet-name>
-    <servlet-class>servlet.Enterprise.UpdateEnDetail</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>DelEnPic</servlet-name>
-    <servlet-class>servlet.Enterprise.DelEnPic</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>AddEnPic</servlet-name>
-    <servlet-class>servlet.Enterprise.AddEnPic</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>BeforeAdd</servlet-name>
-    <servlet-class>servlet.Enterprise.BeforeAdd</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>AddEnCon</servlet-name>
-    <servlet-class>servlet.Enterprise.AddEnCon</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>EditEnCon</servlet-name>
-    <servlet-class>servlet.Enterprise.EditEnCon</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>DelEnCon</servlet-name>
-    <servlet-class>servlet.Enterprise.DelEnCon</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>UpdateCheckNew</servlet-name>
-    <servlet-class>servlet.UpdateCheckNew</servlet-class>
-  </servlet>
-
-
-
-
-
-
-
-
-
-
-  <servlet-mapping>
-    <servlet-name>LoginCheck</servlet-name>
-    <url-pattern>/LoginCheck</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>SeachCheck</servlet-name>
-    <url-pattern>/SeachCheck</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ListUser</servlet-name>
-    <url-pattern>/ListUser</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>Update</servlet-name>
-    <url-pattern>/Update</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>DelUser</servlet-name>
-    <url-pattern>/DelUser</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>UpdateCheck</servlet-name>
-    <url-pattern>/UpdateCheck</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>InsertCheck</servlet-name>
-    <url-pattern>/InsertCheck</url-pattern>
-  </servlet-mapping>  
-  <servlet-mapping>
-    <servlet-name>Upload</servlet-name>
-    <url-pattern>/Upload</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>DelEnterprise</servlet-name>
-    <url-pattern>/Enter/DelEnterprise</url-pattern>
-  </servlet-mapping>  
-  <servlet-mapping>
-    <servlet-name>AddEnterprise</servlet-name>
-    <url-pattern>/Enter/AddEnterprise</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
+	<servlet>
+	    <servlet-name>LoginCheck</servlet-name>
+	    <servlet-class>servlet.AdminLoginCheck</servlet-class>
+	</servlet>
+	<servlet-mapping>
+    	<servlet-name>LoginCheck</servlet-name>
+    	<url-pattern>/LoginCheck</url-pattern>
+  	</servlet-mapping>
     
-    <servlet-name>listEnterprise</servlet-name>
-    <!-- url-pattern>/Enter/listEnterprise</url-pattern  -->
-    <url-pattern>/oper/enterprise/listEnterprise</url-pattern>
-    
-    
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ShowEnDetail</servlet-name>
-    <url-pattern>/Enter/ShowEnDetail</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ChangeEnterprise</servlet-name>
-    <url-pattern>/Enter/ChangeEnterprise</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>UpdateEnDetail</servlet-name>
-    <url-pattern>/Enter/UpdateEnDetail</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>DelEnPic</servlet-name>
-    <url-pattern>/Enter/DelEnPic</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>AddEnPic</servlet-name>
-    <url-pattern>/Enter/AddEnPic</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>BeforeAdd</servlet-name>
-    <url-pattern>/Enter/BeforeAdd</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>AddEnCon</servlet-name>
-    <url-pattern>/Enter/AddEnCon</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>EditEnCon</servlet-name>
-    <url-pattern>/Enter/EditEnCon</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>DelEnCon</servlet-name>
-    <url-pattern>/Enter/DelEnCon</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>UpdateCheckNew</servlet-name>
-    <url-pattern>/UpdateCheckNew</url-pattern>
-  </servlet-mapping>
-  
+ 
 </web-app>
