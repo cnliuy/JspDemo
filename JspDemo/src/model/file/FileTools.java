@@ -61,7 +61,15 @@ public class FileTools {
 	 *  根据id
 	 *   
 	 */
-	public  String  executeReadFileReturnOneline(String filepath ,String id  ) {
+	public  String  executeReadFileReturnOneline(String filepathtype ,String id  ) {
+		
+		String filepath = ""; 
+		if ("userfile".equals(filepathtype)){ //$NON-NLS-1$
+			filepath = filepathuser ;
+		}else{
+			filepath = filepathlist ; 
+		}		
+		
 		File  theFile = new File(filepath) ;
 		LineIterator lit = null;
 		List filelist = null;

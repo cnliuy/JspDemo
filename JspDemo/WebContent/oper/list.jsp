@@ -40,8 +40,8 @@
 				<td>  
 					<a href="<%=bp.getBusinesslink()%>"><%=bp.getBusinesslink()%></a>
 				</td>
-				<td><a href="Update?userid=<%=bp.getId()%>">编辑</a></td>
-				<td><a href="DelUser?userid=<%=bp.getId()%>">删除</a></td>
+				<td><a href="Update?Id=<%=bp.getId()%>">编辑</a></td>
+				<td><a href="DelUser?Id=<%=bp.getId()%>">删除</a></td>
 			</tr>
 			<%
 			}

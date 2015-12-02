@@ -35,5 +35,21 @@ public class BusinessBean {
 		}		
 		return bps;
 	}
+	
+	
+	/**
+	 * 查一个Business 
+	 * @author Liuy
+	 */
+
+	public    BusinessPojo   gogetOneBusiness(Integer  businessId) {
+		boolean flag=false;
+		String filepathtype="listfile";		
+		FileTools ft = new FileTools();
+		String  businessstr = ft.executeReadFileReturnOneline(filepathtype, businessId.toString());
+		BusinessPojo bp = new  BusinessPojo();
+		bp = bp.genBusinessPojoByStr(businessstr);	
+		return bp;
+	}
 
 }
