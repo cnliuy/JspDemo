@@ -41,7 +41,7 @@
 					<a href="<%=bp.getBusinesslink()%>"><%=bp.getBusinesslink()%></a>
 				</td>
 				<td><a href="Update?Id=<%=bp.getId()%>">编辑</a></td>
-				<td><a href="DelUser?Id=<%=bp.getId()%>">删除</a></td>
+				<td><a href="DelBusinessPoJo?Id=<%=bp.getId()%>">删除</a></td>
 			</tr>
 			<%
 			}

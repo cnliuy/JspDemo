@@ -163,6 +163,20 @@ public class FileTools {
        }
        return flag;	
     }
+	/**
+	 * 传入文件类型 返回文件路径
+	 * 
+	 *  "listfile" "userfile"
+	 * */
+	public String gogetFilePath(String filepathtype)   {
+		String filepath = ""; //$NON-NLS-1$
+		if ("userfile".equals(filepathtype)){ //$NON-NLS-1$
+			filepath = filepathuser ;
+		}else{
+			filepath = filepathlist ; 
+		}
+		return filepath;	
+	}
 	
 	/**
 	 * 读文件 返回一行
@@ -213,9 +227,7 @@ public class FileTools {
 		}
 		return reString ;
 	}
-	
-	
-	
+
 	/**
 	 * 写文件
 	 *   根据id 修改某行文件的内容
@@ -257,7 +269,7 @@ public class FileTools {
 		FileOutputStream fos2 = null ;
 		try {
 			fos2 =new FileOutputStream(theFile);
-			IOUtils.writeLines(newls, IOUtils.LINE_SEPARATOR,fos2);
+			IOUtils.writeLines(newls, IOUtils.LINE_SEPARATOR,fos2,"UTF-8");
 		} catch (IOException e) {			
 			e.printStackTrace();
 		} finally{
@@ -273,7 +285,7 @@ public class FileTools {
 	 *   根据id 删除某行文件的内容
 	 * @throws IOException 
 	 */
-	public void executeWriteFileDelLine(String filepath ,String id) throws IOException {
+	public void executeWriteFileDelLine(String filepath ,String id) throws IOException  {
 		
 		List <String> ls = null ;
 		List <String> newls = new ArrayList<String>() ;		
@@ -294,7 +306,15 @@ public class FileTools {
 		}
 
 		System.out.println("写文件开始 "+new Date()); //$NON-NLS-1$
-		IOUtils.writeLines(newls, IOUtils.LINE_SEPARATOR,new FileOutputStream(theFile)); 		
+		FileOutputStream fos2 = null ;
+		try {
+			fos2 =new FileOutputStream(theFile);
+			IOUtils.writeLines(newls, IOUtils.LINE_SEPARATOR,fos2,"UTF-8"); 	
+		} catch (IOException e) {			
+			e.printStackTrace();
+		} finally{
+			IOUtils.closeQuietly(fos2);
+		}
         System.out.println("写文件结束 "+new Date()); //$NON-NLS-1$
         
 	}

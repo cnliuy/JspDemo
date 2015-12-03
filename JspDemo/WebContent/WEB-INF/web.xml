@@ -87,4 +87,24 @@
     	<url-pattern>/Update</url-pattern>
   	</servlet-mapping>
   	
+  	
+  	<servlet>
+	  <servlet-name>UpdateNew</servlet-name>
+	  <servlet-class>servlet.UpdateNew</servlet-class>
+	</servlet>
+	<servlet-mapping>
+    	<servlet-name>UpdateNew</servlet-name>
+    	<url-pattern>/UpdateNew</url-pattern>
+  	</servlet-mapping>
+  	
+  	
+  	
+  	<servlet>
+	  <servlet-name>DelBusinessPoJo</servlet-name>
+	  <servlet-class>servlet.DelBusinessPoJo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+    	<servlet-name>DelBusinessPoJo</servlet-name>
+    	<url-pattern>/DelBusinessPoJo</url-pattern>
+  	</servlet-mapping>
 </web-app>

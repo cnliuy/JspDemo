@@ -9,6 +9,18 @@ public class BusinessPojo {
 	private String businessname;
 	private String businesslink;
 	
+	public static String genStrbyPojoByBusinessPojo(BusinessPojo bp) {
+		String s ="";
+		if (bp.getId()  ==0 ){
+		
+		}else{
+			//Id---5;Name---项目名称5;Link---http://blog.csdn.net/liuhenghui5201/article/details/8276278
+			s = "Id---"+bp.getId()+";Name---"+bp.getBusinessname()+";Link---"+bp.getBusinesslink();
+		}
+		return s;
+	}
+	
+	
 	public static BusinessPojo genBusinessPojoByStr(String s) {
 		
 		BusinessPojo ap = null;
