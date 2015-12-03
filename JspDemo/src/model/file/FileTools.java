@@ -353,8 +353,14 @@ public class FileTools {
 			String line = itt.next();
 			int i = findlinebyId(line , idi);
 			if(i==1){				 
-			}else{			
-				newls.add(line) ;
+			}else{	
+				if(line.equals(IOUtils.LINE_SEPARATOR)){
+					
+				}else if ((line.trim()).equals("")|| (line.trim()).equals(IOUtils.LINE_SEPARATOR)){
+					System.out.println("===========");
+				}else{
+					newls.add(line) ;
+				}
 			}
 		}
 

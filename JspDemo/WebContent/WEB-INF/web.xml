@@ -27,7 +27,7 @@
     	<filter-class>my.ly.release.filters.SessionFilter</filter-class>
     	<init-param>    
 			<param-name>excludedPages</param-name>    
-			<param-value>/login.jsp,/LoginCheck</param-value>    
+			<param-value>/login.jsp,/LoginCheck,/Tolist</param-value>    
 		</init-param>
     </filter>
     <filter-mapping>
@@ -79,8 +79,8 @@
   	</servlet-mapping>
     
 	<servlet>
-	  <servlet-name>Update</servlet-name>
-	  <servlet-class>servlet.Update</servlet-class>
+	  	<servlet-name>Update</servlet-name>
+	  	<servlet-class>servlet.Update</servlet-class>
 	</servlet>
 	<servlet-mapping>
     	<servlet-name>Update</servlet-name>
@@ -89,16 +89,16 @@
   	
   	
   	<servlet>
-	  <servlet-name>UpdateNew</servlet-name>
-	  <servlet-class>servlet.UpdateNew</servlet-class>
+	  	<servlet-name>UpdateNew</servlet-name>
+	  	<servlet-class>servlet.UpdateNew</servlet-class>
 	</servlet>
 	<servlet-mapping>
     	<servlet-name>UpdateNew</servlet-name>
     	<url-pattern>/UpdateNew</url-pattern>
   	</servlet-mapping>
   	<servlet>
-	  <servlet-name>AddNew</servlet-name>
-	  <servlet-class>servlet.AddNew</servlet-class>
+	  	<servlet-name>AddNew</servlet-name>
+	  	<servlet-class>servlet.AddNew</servlet-class>
 	</servlet>
 	<servlet-mapping>
     	<servlet-name>AddNew</servlet-name>
@@ -107,8 +107,8 @@
   	
   	
   	<servlet>
-	  <servlet-name>DelBusinessPoJo</servlet-name>
-	  <servlet-class>servlet.DelBusinessPoJo</servlet-class>
+	  	<servlet-name>DelBusinessPoJo</servlet-name>
+	  	<servlet-class>servlet.DelBusinessPoJo</servlet-class>
 	</servlet>
 	<servlet-mapping>
     	<servlet-name>DelBusinessPoJo</servlet-name>
@@ -122,6 +122,15 @@
 	<servlet-mapping>
     	<servlet-name>AddBusinessPoJo</servlet-name>
     	<url-pattern>/AddBusinessPoJo</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+	  	<servlet-name>Tolist</servlet-name>
+	  	<servlet-class>servlet.Listindex</servlet-class>
+	</servlet>
+	<servlet-mapping>
+    	<servlet-name>Tolist</servlet-name>
+    	<url-pattern>/Tolist</url-pattern>
   	</servlet-mapping>
   	
 </web-app>
