@@ -7,6 +7,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -373,13 +377,51 @@ public class FileTools {
 	 *   尾部添加一行
 	 * */
 	
-	public void executeWriteFileAppendline( String line,String filepath)  throws IOException {
+	public void executeWriteFileAppendline( String line,String filepath)    {
 		
-		BufferedWriter writer = new BufferedWriter(new FileWriter(filepath, true));
-		writer.append(IOUtils.LINE_SEPARATOR);
-		writer.append(line);
-		writer.close();
+		BufferedWriter writer = null;
+		try {
+			FileOutputStream fos = new FileOutputStream(filepath,true);  
+			//writer = new BufferedWriter(new FileWriter(filepath, true) );//old 写法
+			writer = new BufferedWriter(new OutputStreamWriter(fos, "UTF-8") );			
+			writer.append(IOUtils.LINE_SEPARATOR);
+			String strUTF8 = URLDecoder.decode(line, "UTF-8");			
+			writer.append(strUTF8);
+		} catch (IOException e) {			
+			e.printStackTrace();
+		}finally{			
+			try {
+				writer.close();
+			} catch (IOException e) {			
+				e.printStackTrace();
+			}
+			
+		}		
 	}
+	
+	/**
+	* Get XML String of utf-8
+	* 
+	* @return XML-Formed string
+	*/
+	public static String getUTF8XMLString(String ss) {
+	 
+		StringBuffer sb = new StringBuffer();
+		sb.append(ss);
+		String xmString = "";
+		String xmlUTF8="";
+		try {
+			xmString = new String(sb.toString().getBytes("UTF-8"));
+			xmlUTF8 = URLEncoder.encode(xmString, "UTF-8");
+			System.out.println("utf-8 编码：" + xmlUTF8) ;
+		} catch (UnsupportedEncodingException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return xmlUTF8;
+	}
+	
 	
 	/**
 	 * 写文件

@@ -53,16 +53,20 @@ public class testFileTools {
 	
  
 	
+//	public static void main(String[] args) {
+//		BusinessPojo bp = new BusinessPojo();
+//		String s = "Id---5;Name---项目名称5;Link---http://blog.csdn.net/liuhenghui5201/article/details/8276278";
+//		bp = bp.genBusinessPojoByStr(s);
+//		System.out.println(bp.getId());
+//		System.out.println(bp.getBusinesslink());
+//		System.out.println(bp.getBusinessname());
+//	}
+	
+	
 	public static void main(String[] args) {
-		BusinessPojo bp = new BusinessPojo();
-		String s = "Id---5;Name---项目名称5;Link---http://blog.csdn.net/liuhenghui5201/article/details/8276278";
-		bp = bp.genBusinessPojoByStr(s);
-		System.out.println(bp.getId());
-		System.out.println(bp.getBusinesslink());
-		System.out.println(bp.getBusinessname());
-		
- 
-
+		String ss = "ha哈哈哈 ";
+		//FileTools.getUTF8XMLString(ss) ;
+		System.out.println(FileTools.getUTF8XMLString(ss) );
 	}
 
 }

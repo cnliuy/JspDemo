@@ -96,7 +96,14 @@
     	<servlet-name>UpdateNew</servlet-name>
     	<url-pattern>/UpdateNew</url-pattern>
   	</servlet-mapping>
-  	
+  	<servlet>
+	  <servlet-name>AddNew</servlet-name>
+	  <servlet-class>servlet.AddNew</servlet-class>
+	</servlet>
+	<servlet-mapping>
+    	<servlet-name>AddNew</servlet-name>
+    	<url-pattern>/AddNew</url-pattern>
+  	</servlet-mapping>
   	
   	
   	<servlet>
