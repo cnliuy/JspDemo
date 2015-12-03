@@ -107,4 +107,14 @@
     	<servlet-name>DelBusinessPoJo</servlet-name>
     	<url-pattern>/DelBusinessPoJo</url-pattern>
   	</servlet-mapping>
+  	
+  	<servlet>
+	  <servlet-name>AddBusinessPoJo</servlet-name>
+	  <servlet-class>servlet.AddBusinessPoJo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+    	<servlet-name>AddBusinessPoJo</servlet-name>
+    	<url-pattern>/AddBusinessPoJo</url-pattern>
+  	</servlet-mapping>
+  	
 </web-app>

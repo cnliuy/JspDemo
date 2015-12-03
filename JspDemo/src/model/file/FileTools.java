@@ -97,6 +97,55 @@ public class FileTools {
 	}
 	
 	/**
+	 * 读文件 返回最大Id
+	 *  根据id
+	 *   
+	 */
+	public  int  gogetMaxId(String filepath ) {	
+		
+		File  theFile = new File(filepath) ;
+		LineIterator lit = null;
+		List filelist = null;
+		int maxid = 0;		 
+		
+		try{
+			lit = FileUtils.lineIterator(theFile, "UTF-8");	 //$NON-NLS-1$
+			
+		    while (lit.hasNext()) {		    	
+		        String line = lit.nextLine();
+		        int hereid = gogetlineId(line);
+		        if( hereid > maxid ){
+		        	maxid = hereid ;
+		        }	        	
+		    }       	       
+		    
+		}catch(IOException e) {
+			e.printStackTrace();
+		}finally{
+		    LineIterator.closeQuietly(lit);
+		}
+		return maxid ;
+	}
+	
+	
+	private  int gogetlineId(String line){
+		int lineId = 0 ;
+		String [] linea = line.split(";"); //$NON-NLS-1$
+	    if(linea.length>0){
+		   String [] linea0 = linea[0].split("---"); //$NON-NLS-1$
+		   if(("Id").equals(linea0[0])){ //$NON-NLS-1$
+		       String hereid = linea0[1] ;
+		       lineId = Integer.parseInt(hereid.trim());
+
+		   }
+	     }
+	     return lineId;
+	
+	}
+	
+	
+	
+	/**
 	 * Id:123;
 	 * 
 	 * @param 整行的内容

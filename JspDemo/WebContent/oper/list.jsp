@@ -41,11 +41,17 @@
 					<a href="<%=bp.getBusinesslink()%>"><%=bp.getBusinesslink()%></a>
 				</td>
 				<td><a href="Update?Id=<%=bp.getId()%>">编辑</a></td>
-				<td><a href="DelBusinessPoJo?Id=<%=bp.getId()%>">删除</a></td>
+				<td>
+				    <a href="DelBusinessPoJo?Id=<%=bp.getId()%>"
+		               style="color:red;" onclick="javascript:return del('您真的确定要删除吗？\n\n删除后将不能恢复!');">删除</a>
+				</td>
+				
 			</tr>
 			<%
 			}
 			%>
 		</table>
+		<br><br>
+		<a href="AddBusinessPoJo">增加一个测试增值页面</a> 
 	</body>
 </html>
