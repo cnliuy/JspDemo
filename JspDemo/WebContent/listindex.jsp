@@ -7,8 +7,8 @@
 		<style>  
 		#all{  
 		    margin:0px auto;  
-		    width:500px; /* 必须制定宽度 */  
-		    height:200px;  
+		    width:960px; /* 必须制定宽度 */  
+		    height:600px;  
 		    /* background-color:blue;  */
 		}  
 		</style>
@@ -18,20 +18,42 @@
 	<div id="all">  
 		<table class="divcss5">
 			<tr>
-
-				<td><strong> 
-					栏目名称</strong> 
-				</td>				
+				<td></td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;<strong> 
+					增值业务</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+				</td>	
+				<td></td>			
 			</tr>
 
 			<%
 				ArrayList<BusinessPojo> bps =(ArrayList)request.getAttribute("BusinessPojoList");
-				for (BusinessPojo bp : bps) {				
+				for (int  i = 0 ; i < bps.size() ; i=i+3) {
+					 int  max = bps.size() ; 
 			%>
-			<tr>
+			<tr>	
+			<% 
+					BusinessPojo [] b3=  new BusinessPojo[3];
+					for(int o=0 ;o<3 ;o++){	
+						int  here = i+o ;
+						if (max > here ){
+							b3[o]=bps.get(here) ;
+						}else{
+							break;
+						}
+						
+						 
+			%>
+			 
 				<td>
-					<a href="<%=bp.getBusinesslink()%>"><%=bp.getBusinessname()%></a>
-				</td>				
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="<%=b3[o].getBusinesslink()%>"><%=b3[o].getBusinessname()%></a>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+				</td>
+				
+			 
+			<%
+					}
+			%>
 			</tr>
 			<%
 			}
