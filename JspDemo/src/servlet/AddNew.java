@@ -82,11 +82,14 @@ public class AddNew extends HttpServlet {
 		FileTools ft = new FileTools();
 		String filepathtype="listfile";	
 		String filepath = ft.gogetFilePath(filepathtype) ;
+		System.out.println("---------------wirte file :"+filepath);
 		BusinessPojo bp = new BusinessPojo();
 		bp.setId(Integer.parseInt(businessId));
 		bp.setBusinessname(businessname);
-		bp.setBusinesslink(businesslink);		
+		bp.setBusinesslink(businesslink);	
+		//System.out.println("---------------wirte file content :"+businessname+";"+businesslink);
 		String writenline =BusinessPojo.genStrbyPojoByBusinessPojo(bp);	
+		System.out.println("---------------"+writenline);
 		
 		//ft.executeWriteFile(filepath, businessId, writenline);
 		ft.executeWriteFileAppendline(writenline, filepath);

@@ -385,24 +385,62 @@ public class FileTools {
 	
 	public void executeWriteFileAppendline( String line,String filepath)    {
 		
-		BufferedWriter writer = null;
+//		BufferedWriter writer = null;
+//		try {
+//			FileOutputStream fos = new FileOutputStream(filepath,true);  
+//			//writer = new BufferedWriter(new FileWriter(filepath, true) );//old 写法
+//			writer = new BufferedWriter(new OutputStreamWriter(fos, "UTF-8") );			
+//			writer.append(IOUtils.LINE_SEPARATOR);
+//			String strUTF8 = URLDecoder.decode(line, "UTF-8");			
+//			writer.append(strUTF8);
+//		} catch (IOException e) {			
+//			e.printStackTrace();
+//		}finally{			
+//			try {
+//				writer.close();
+//			} catch (IOException e) {			
+//				e.printStackTrace();
+//			}			
+//		}	
+		
+		//------------------------------
+		List <String> ls = null ;
+		List <String> newls = new ArrayList<String>() ;		
+		File  theFile = new File(filepath) ;
+	
+		int intreturnflag = 0 ;		
+		FileInputStream fin;
 		try {
-			FileOutputStream fos = new FileOutputStream(filepath,true);  
-			//writer = new BufferedWriter(new FileWriter(filepath, true) );//old 写法
-			writer = new BufferedWriter(new OutputStreamWriter(fos, "UTF-8") );			
-			writer.append(IOUtils.LINE_SEPARATOR);
-			String strUTF8 = URLDecoder.decode(line, "UTF-8");			
-			writer.append(strUTF8);
+			fin = new FileInputStream(filepath);
+			ls = IOUtils.readLines(fin,"utf-8");
+			Iterator<String> itt = ls.iterator();
+			while(itt.hasNext()){	
+				String hereline =  itt.next() ;
+				if ((hereline.trim()).equals("")|| (hereline.trim()).equals(IOUtils.LINE_SEPARATOR)){
+					
+				}else{
+					newls.add(hereline) ;
+				}
+			}
+			newls.add(IOUtils.LINE_SEPARATOR);
+			newls.add(line);
+		} catch (Exception e2) {			
+			e2.printStackTrace();
+		}		
+		
+		System.out.println("写文件开始 "+new Date()); //$NON-NLS-1$
+		FileOutputStream fos2 = null ;
+		try {
+			fos2 =new FileOutputStream(theFile);
+			IOUtils.writeLines(newls, IOUtils.LINE_SEPARATOR,fos2,"UTF-8"); 	
 		} catch (IOException e) {			
 			e.printStackTrace();
-		}finally{			
-			try {
-				writer.close();
-			} catch (IOException e) {			
-				e.printStackTrace();
-			}
-			
-		}		
+		} finally{
+			IOUtils.closeQuietly(fos2);
+		}
+        System.out.println("写文件结束 "+new Date()); //$NON-NLS-1$
+		
+		
 	}
 	
 	/**

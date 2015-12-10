@@ -9,10 +9,11 @@
 	</head>
 
 	<body>
+	
+	<a href="AddBusinessPoJo">增加一个测试增值页面</a>  &nbsp;&nbsp; &nbsp; <a href="/JspDemo/Tolist">展示列表页</a> <br></br>
 		<table>
 			<tr>
-				<td><strong> 
-					栏目id</strong> 
+				<td><strong>Id  </strong> 
 				</td>
 				<td><strong> 
 					栏目名称</strong> 
@@ -52,6 +53,6 @@
 			%>
 		</table>
 		<br><br>
-		<a href="AddBusinessPoJo">增加一个测试增值页面</a> 
+		
 	</body>
 </html>
